@@ -7,7 +7,7 @@ const DEFAULT_SPOTLIGHT_RADIUS = 10;
 const DEFAULT_GLOW_COLOR = '238, 238, 238';
 const MOBILE_BREAKPOINT = 768;
 
-const cardData = [
+const defaultCardData = [
   {
     color: '#141416b1',
     title: 'Analytics',
@@ -50,7 +50,6 @@ const cardData = [
     label: 'Feb 5, 2023',
     views: '3.1K',
   },
-   
 ];
 
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
@@ -470,7 +469,7 @@ const useMobileDetection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    const checkMobile = () => window.innerWidth <= MOBILE_BREAKPOINT ? setIsMobile(true) : setIsMobile(false);
 
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -482,6 +481,9 @@ const useMobileDetection = () => {
 };
 
 const MagicBento = ({
+  // New cardData prop
+  cardData = defaultCardData,
+  // Other props remain the same
   textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
@@ -497,6 +499,9 @@ const MagicBento = ({
   const gridRef = useRef(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
+
+  // Use the cardData prop
+  const dataToRender = cardData;
 
   return (
     <>
@@ -638,7 +643,7 @@ const MagicBento = ({
 
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-5">
-          {cardData.map((card, index) => {
+          {dataToRender.map((card, index) => {
             const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border-[0.5px] border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? 'card--border-glow' : ''
               }`;
 
@@ -666,21 +671,21 @@ const MagicBento = ({
                   enableMagnetism={enableMagnetism}
                 >
                   <div className="card__header flex justify-between items-center gap-3 relative text-white">
-  <span className="card__label text-gray-400 text-sm">{card.label}</span>
-  <div className="flex items-center gap-1 text-gray-400 text-sm">
-    <Eye size={16} />
-    <span>{card.views}</span>
-  </div>
-</div>
-<div className="card__content flex flex-col relative text-white">
-  <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
-    {card.title}
-  </h3>
-  <p className={`card__description text-sm leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
-    {card.description}
-  </p>
-  <button className='card__button text-xs font-medium pt-5'>Read more</button>
-</div>
+                    <span className="card__label text-gray-400 text-sm">{card.label}</span>
+                    <div className="flex items-center gap-1 text-gray-400 text-sm">
+                      <Eye size={16} />
+                      <span>{card.views}</span>
+                    </div>
+                  </div>
+                  <div className="card__content flex flex-col relative text-white">
+                    <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                      {card.title}
+                    </h3>
+                    <p className={`card__description text-sm leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                      {card.description}
+                    </p>
+                    <button className='card__button text-xs font-medium pt-5'>Read more</button>
+                  </div>
                 </ParticleCard>
               );
             }

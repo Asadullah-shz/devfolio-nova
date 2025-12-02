@@ -77,7 +77,7 @@ const App = () => {
               <ul>
                 <Link to="/contact">Contact</Link>
               </ul>
-              <div className="pl-9">
+              {/* <div className="pl-9">
                 <Dropdown
                   className=""
                   menu={{ items }}
@@ -92,7 +92,7 @@ const App = () => {
                     <Space className="hover:underline cursor-pointer">EN</Space>
                   </a>
                 </Dropdown>
-              </div>
+              </div> */}
 
               <button className="border border-gray-600 text-white px-6 py-2 rounded-sm hover:bg-white/10 transition-colors">
                 hello@asad.fr
@@ -101,10 +101,10 @@ const App = () => {
           </nav>
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> */}
             <Route path="/about" element={<About />} />
           </Routes>
 

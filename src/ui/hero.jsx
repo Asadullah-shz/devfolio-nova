@@ -1,48 +1,10 @@
 import React from 'react';
 import { Divider, Dropdown, Space, theme } from "antd";
+import FlowingButton from '../ui/flowingbutton'
 
 const { useToken } = theme;
 
-const items = [
-    {
-        key: "1",
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="">
-                English
-            </a>
-        ),
-    },
-    {
-        key: "2",
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="">
-                French
-            </a>
-        ),
-        disabled: false,
-    },
-    {
-        key: "3",
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="">
-                Spanish
-            </a>
-        ),
-        disabled: false,
-    },
-];
-
 const HeroPage = () => {
-    const { token } = useToken();
-    const contentStyle = {
-        backgroundColor: token.colorBgElevated,
-        borderRadius: token.borderRadiusLG,
-        boxShadow: token.boxShadowSecondary,
-    };
-    const menuStyle = {
-        boxShadow: "none",
-    };
-
     return (
         <div
             className="relative flex flex-col items-center justify-center min-h-screen text-white z-10"
@@ -51,59 +13,6 @@ const HeroPage = () => {
                 fontFamily: 'sans-serif'
             }}
         >
-
-            <header className="absolute top-8 w-full flex justify-center items-center text-sm font-light tracking-wider px-8">
-                <nav className="flex space-x-6">
-                    <a
-                        href="/about"
-                        className="text-gray-400 hover:text-white transition duration-200"
-                    >
-                        About
-                    </a>
-                    <a
-                        href="/projects"
-                        className="text-gray-400 hover:text-white transition duration-200"
-                    >
-                        Projects
-                    </a>
-                    <a
-                        href="/experience"
-                        className="text-gray-400 hover:text-white transition duration-200"
-                    >
-                        Experience
-                    </a>
-                    <a
-                        href="/contact"
-                        className="text-gray-400 hover:text-white transition duration-200"
-                    >
-                        Contact
-                    </a>
-                </nav>
-
-                <div className="absolute right-8 flex items-center gap-4">
-                    <div className="">
-                        <Dropdown
-                            className=""
-                            menu={{ items }}
-                            popupRender={(menu) => (
-                                <div style={contentStyle}>
-                                    {React.cloneElement(menu, { style: menuStyle })}
-                                    <Divider style={{ margin: 0 }} />
-                                </div>
-                            )}
-                        >
-                            <a onClick={(e) => e.preventDefault()}>
-                                <Space className="hover:underline cursor-pointer">EN</Space>
-                            </a>
-                        </Dropdown>
-                    </div>
-
-                    <button className="border border-gray-600 text-white px-6 py-2 rounded-sm hover:bg-white/10 transition-colors">
-                        hello@asad.fr
-                    </button>
-                </div>
-            </header>
-
             <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
                 style={{
@@ -146,11 +55,7 @@ const HeroPage = () => {
                 </p>
             </main>
 
-            <div className="absolute bottom-8 left-8">
-                <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center cursor-pointer">
-                    <span className="text-pink-500 text-xl">🦄</span>
-                </div>
-            </div>
+            <FlowingButton />
         </div>
     );
 };

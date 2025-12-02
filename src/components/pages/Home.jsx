@@ -4,7 +4,7 @@ import HeroPage from '../../ui/hero.jsx';
 function Home() {
   return (
     <>
-      <MovingParticleBackground /> 
+      <MovingParticleBackground />
       <HeroPage />
     </>
   );
