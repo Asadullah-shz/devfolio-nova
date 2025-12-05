@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { Twitter, Github, Linkedin } from 'lucide-react'; 
+import { Twitter, Github, Linkedin } from 'lucide-react';
 
 
 const DEFAULT_PARTICLE_COUNT = 15;
@@ -276,7 +276,7 @@ const ParticleCard = ({
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
- 
+
         card.style.setProperty('--mouse-x', `${x}%`);
         card.style.setProperty('--mouse-y', `${y}%`);
       }}
@@ -286,131 +286,134 @@ const ParticleCard = ({
   );
 };
 
-
 const SingleSocialCard = ({
-    icon: Icon,
-    handle,
-    platform,
-    glowColor = DEFAULT_GLOW_COLOR,
+  icon: Icon,
+  handle,
+  platform,
+  glowColor = DEFAULT_GLOW_COLOR,
+  url,
 }) => {
-    const isMobile = useMobileDetection();
-    const shouldDisableAnimations = isMobile;
-    const lineRef = useRef(null);
+  const isMobile = useMobileDetection();
+  const shouldDisableAnimations = isMobile;
+  const lineRef = useRef(null);
 
-    const iconCircleStyle = {
-      borderColor: '#2a2a2a',
-      '--hover-color-light': `rgba(${glowColor}, 0.5)`,
-      '--hover-shadow': `0 0 40px rgba(${glowColor}, 0.2)`,
-    };
-    
-    const lineStyle = {
-        background: `linear-gradient(to bottom, rgba(${glowColor}, 0.5) 0%, #1a1a1a 50%, transparent 100%)`,
-    };
+  const iconCircleStyle = {
+    borderColor: '#2a2a2a',
+    '--hover-color-light': `rgba(${glowColor}, 0.5)`,
+    '--hover-shadow': `0 0 40px rgba(${glowColor}, 0.2)`,
+  };
 
-    useEffect(() => {
-        if (!lineRef.current) return;
+  const lineStyle = {
+    background: `linear-gradient(to bottom, rgba(${glowColor}, 0.5) 0%, #1a1a1a 50%, transparent 100%)`,
+  };
 
-        gsap.fromTo(
-            lineRef.current,
-            { scaleY: 0, transformOrigin: 'top center' },
-            { 
-                scaleY: 1, 
-                duration: 1.5, 
-                ease: 'power2.out',
-                delay: 0.5
-            }
-        );
-    }, []);
+  useEffect(() => {
+    if (!lineRef.current) return;
 
-    return (
-        <ParticleCard
-            className="social-card-item" 
-            disableAnimations={shouldDisableAnimations}
-            particleCount={DEFAULT_PARTICLE_COUNT}
-            glowColor={glowColor}
-            enableTilt={true}
-            clickEffect={true}
-            enableMagnetism={true}
-        >
-            <style>
-              {`
+    gsap.fromTo(
+      lineRef.current,
+      { scaleY: 0, transformOrigin: 'top center' },
+      {
+        scaleY: 1,
+        duration: 1.5,
+        ease: 'power2.out',
+        delay: 0.5
+      }
+    );
+  }, []);
+
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer" className="w-full max-w-[370px]">
+      <ParticleCard
+        className="social-card-item"
+        disableAnimations={shouldDisableAnimations}
+        particleCount={DEFAULT_PARTICLE_COUNT}
+        glowColor={glowColor}
+        enableTilt={true}
+        clickEffect={true}
+        enableMagnetism={true}
+      >
+        <style>
+          {`
                 .social-card-item:hover .icon-circle {
                   border-color: var(--hover-color-light);
                   box-shadow: var(--hover-shadow);
                   transform: scale(1.08);
                 }
               `}
-            </style>
-            <div className="flex flex-col items-center w-full relative z-10">
-                <div className="icon-circle" style={iconCircleStyle}>
-                    <Icon size={28} className="text-white" strokeWidth={1.5} />
-                </div>
+        </style>
+        <div className="flex flex-col items-center w-full relative z-10">
+          <div className="icon-circle" style={iconCircleStyle}>
+            <Icon size={28} className="text-white" strokeWidth={1.5} />
+          </div>
 
-                <div ref={lineRef} className="connecting-line" style={lineStyle} /> 
+          <div ref={lineRef} className="connecting-line" style={lineStyle} />
 
-                <h2 className="handle-text text-white mt-0 mb-2 text-center">
-                    @{handle}
-                </h2>
-                
-                <p className="platform-text text-gray-500">
-                    {platform}
-                </p>
-            </div>
-        </ParticleCard>
-    );
+          <h2 className="handle-text text-white mt-0 mb-2 text-center">
+            @{handle}
+          </h2>
+
+          <p className="platform-text text-gray-500">
+            {platform}
+          </p>
+        </div>
+      </ParticleCard>
+    </a>
+  );
 };
 
 
 const SocialCardList = () => {
-    const profiles = [
-        { 
-            id: 1, 
-            icon: Twitter, 
-            handle: 'chronark_', 
-            platform: 'Twitter', 
-            glowColor: '132, 0, 255' 
-        },
-        { 
-            id: 2, 
-            icon: Github, 
-            handle: 'chronark-dev', 
-            platform: 'GitHub', 
-            glowColor: '0, 255, 132' 
-        },
-        { 
-            id: 3, 
-            icon: Linkedin, 
-            handle: 'chronark-profile', 
-            platform: 'LinkedIn', 
-            glowColor: '0, 132, 255' 
-        },
-    ];
+  const profiles = [
+    {
+      id: 1,
+      icon: Twitter,
+      handle: 'A.sa._.d',
+      platform: 'Twitter',
+      glowColor: '132, 0, 255',
 
-    const mainContainerRef = useRef(null);
+      url: 'https://twitter.com/A.sa._.d'
+    },
+    {
+      id: 2,
+      icon: Github,
+      handle: 'Asadullah-shz',
+      platform: 'GitHub',
+      glowColor: '0, 255, 132',
 
-    const handleContainerMouseMove = (e) => {
-        if (!mainContainerRef.current) return;
+      url: 'https://github.com/Asadullah-shz'
+    },
+    {
+      id: 3,
+      icon: Linkedin,
+      handle: 'asadullah-Shz1',
+      platform: 'LinkedIn',
+      glowColor: '0, 132, 255',
 
-      
-        const x = e.clientX; 
-        const y = e.clientY; 
+      url: 'https://linkedin.com/in/asadullah-Shz1'
+    },
+  ];
 
-       
-        mainContainerRef.current.style.setProperty('--spotlight-x', `${x}px`);
-        mainContainerRef.current.style.setProperty('--spotlight-y', `${y}px`);
-    };
+  const mainContainerRef = useRef(null);
 
-    return (
-        <div 
-            ref={mainContainerRef}
-            className="min-h-screen  flex flex-col items-center justify-center p-8 relative"
-            onMouseMove={handleContainerMouseMove}
-        >
+  const handleContainerMouseMove = (e) => {
+    if (!mainContainerRef.current) return;
+    const x = e.clientX;
+    const y = e.clientY;
+    mainContainerRef.current.style.setProperty('--spotlight-x', `${x}px`);
+    mainContainerRef.current.style.setProperty('--spotlight-y', `${y}px`);
+  };
 
-            <div className="background-spotlight" />
-            
-            <style>
-                {`
+  return (
+    <div
+      ref={mainContainerRef}
+      className="min-h-screen flex flex-col items-center justify-center p-8 relative"
+      onMouseMove={handleContainerMouseMove}
+    >
+      <div className="background-spotlight" />
+
+      <style>
+        {`
                     .background-spotlight {
                         position: fixed;
                         top: 0;
@@ -537,22 +540,23 @@ const SocialCardList = () => {
                         }
                     }
                 `}
-            </style>
+      </style>
 
 
-            <div className="flex flex-wrap items-stretch justify-center gap-3 max-w-7xl w-full z-10">
-                {profiles.map((profile) => (
-                    <SingleSocialCard 
-                        key={profile.id}
-                        icon={profile.icon}
-                        handle={profile.handle}
-                        platform={profile.platform}
-                        glowColor={profile.glowColor}
-                    />
-                ))}
-            </div>
-        </div>
-    );
+      <div className="flex flex-wrap items-stretch justify-center gap-3 max-w-7xl w-full z-10">
+        {profiles.map((profile) => (
+          <SingleSocialCard
+            key={profile.id}
+            icon={profile.icon}
+            handle={profile.handle}
+            platform={profile.platform}
+            glowColor={profile.glowColor}
+            url={profile.url}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default SocialCardList;

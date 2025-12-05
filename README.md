@@ -1,16 +1,89 @@
-# React + Vite
+# Asad's Devfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance developer portfolio built with React, Vite, and Tailwind CSS. This project showcases my skills, projects, and experience with a focus on smooth animations and a premium user experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Dynamic Animations:** Powered by [GSAP](https://greensock.com/gsap/) for smooth transitions and interactive elements.
+-   **Responsive Design:** Fully responsive layout using [Tailwind CSS](https://tailwindcss.com/), ensuring a great experience on all devices.
+-   **Particle Background:** Interactive particle background effect for visual depth.
+-   **3D Elements:** Integration of 3D elements using `@react-three/fiber` and `three.js`.
+-   **Page Transitions:** Seamless page transitions managed by a custom context.
+-   **Modern UI Components:** Custom-built UI components including:
+    -   **Magic Bento Grid:** A dynamic grid layout for showcasing projects.
+    -   **Neon Cards:** Stylish cards with glow effects.
+    -   **Flowing Buttons:** Interactive buttons with hover effects.
+-   **Routing:** Client-side routing with `react-router-dom`.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   **Framework:** [React](https://reactjs.org/) (v19)
+-   **Build Tool:** [Vite](https://vitejs.dev/)
+-   **Styling:** [Tailwind CSS](https://tailwindcss.com/) (v4), [Styled Components](https://styled-components.com/)
+-   **Animations:** [GSAP](https://greensock.com/gsap/)
+-   **Icons:** [Lucide React](https://lucide.dev/), [Ant Design Icons](https://ant.design/components/icon/)
+-   **UI Library:** [Ant Design](https://ant.design/)
+-   **3D Graphics:** [Three.js](https://threejs.org/), [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── components/
+│   └── pages/       # Main page components (Home, About, Projects, etc.)
+├── context/         # React Context providers (e.g., TransitionContext)
+├── css/             # Global and component-specific CSS files
+├── ui/              # Reusable UI components
+│   ├── animations/  # Animation components (MagicBento, ParticleBg, etc.)
+│   └── cards/       # Card components (ProfileCard, NeonCard, etc.)
+├── App.jsx          # Main application component with routing
+└── main.jsx         # Entry point
+```
+
+## 📦 Getting Started
+
+### Prerequisites
+
+-   Node.js (v18 or higher recommended)
+-   npm or yarn
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/dev-folio-v2.git
+    cd dev-folio-v2
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running the Project
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## 📄 License
+
+This project is licensed under the MIT License.

@@ -14,6 +14,7 @@ const defaultCardData = [
     description: 'Track user behavior im asad from pakkistan who are u mf',
     label: 'May 21, 2023',
     views: '3.1K',
+    url: 'https://google.com'
   },
   {
     color: '#141416b1',
@@ -481,9 +482,8 @@ const useMobileDetection = () => {
 };
 
 const MagicBento = ({
-  // New cardData prop
+
   cardData = defaultCardData,
-  // Other props remain the same
   textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
@@ -500,7 +500,6 @@ const MagicBento = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
-  // Use the cardData prop
   const dataToRender = cardData;
 
   return (
@@ -670,13 +669,15 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between items-center gap-3 relative text-white">
+                 <a href={card.url} target="_blank" className="card__header flex justify-between items-center gap-3 relative text-white"> 
+                  
                     <span className="card__label text-gray-400 text-sm">{card.label}</span>
                     <div className="flex items-center gap-1 text-gray-400 text-sm">
                       <Eye size={16} />
                       <span>{card.views}</span>
                     </div>
-                  </div>
+                  </a>
+                  <a href={card.url} target="_blank">
                   <div className="card__content flex flex-col relative text-white">
                     <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
                       {card.title}
@@ -686,6 +687,8 @@ const MagicBento = ({
                     </p>
                     <button className='card__button text-xs font-medium pt-5'>Read more</button>
                   </div>
+                  </a>
+                  
                 </ParticleCard>
               );
             }

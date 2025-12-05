@@ -1,18 +1,23 @@
 import React from 'react';
 
-const NeonCard = ({
-    className = '',
-    teamMembers = [],
-    logoText = 'LOGO',
-    badgeText = '/02',
-    title = 'Neon Frame Studio',
-    subtitle = 'UI/UX Design & Creative Systems',
-    description = 'We craft stunning interfaces built on **clarity**, **performance**, and **emotion**. Tailored visuals that connect brands with bold identities.',
-}) => {
+const NeonCard = (props) => {
+ 
+    const {
+        className = '',
+        teamMembers = [],
+        logoText = 'LOGO',
+        badgeText = '/00', 
+        title = 'Neon Frame Studio',
+        subtitle = 'UI/UX Design & Creative Systems',
+        description = 'We craft stunning interfaces built on **clarity**, **performance**, and **emotion**. Tailored visuals that connect brands with bold identities.',
+    } = props;
+
+
+
     return (
         <div className={`flex items-center justify-center p-8 ${className}`}>
             <div
-                className="relative w-full max-w-sm md:max-w-md p-6 sm:p-8 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out hover:scale-[1.02] transform animate-pulse-subtle"
+                className="relative w-full max-w-sm md:max-w-md p-6 sm:p-8 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out hover:scale-[1.02] transform animate-pulse-subtle group" // Added 'group' class for better glow
                 style={{
                     background: '#252528ff',
                     backdropFilter: 'blur(15px)',
@@ -61,7 +66,10 @@ const NeonCard = ({
                         <p className="text-sm text-gray-400 tracking-wider">{subtitle}</p>
                     </div>
 
-                    <p className="text-xl text-gray-200 leading-relaxed mb-10">{description}</p>
+                    <p 
+                        className="text-xl text-gray-200 leading-relaxed mb-10"
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                     <div className="flex justify-between items-center text-blue-400 font-semibold"></div>
                 </div>
             </div>

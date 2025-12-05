@@ -87,9 +87,9 @@ const nav2bar = () => {
               </Dropdown>
             </div>
 
-             <button className="border border-gray-600 text-white px-6 py-2 rounded-sm hover:bg-white/10 transition-colors">
-                        hello@asad.fr
-                    </button>
+            <button className="border border-gray-600 text-white px-6 py-2 rounded-sm hover:bg-white/10 transition-colors">
+              <a href="mailto:asadshzdev@gmail.com">asadshzdev@gmail.com</a>
+            </button>
           </li>
         </nav>
       </div>

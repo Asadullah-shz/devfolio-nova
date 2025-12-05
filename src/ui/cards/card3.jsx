@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
-import '../css/ProfileCard.css';
+import '../../css/profilecard.css';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -16,7 +16,7 @@ const round = (v, precision = 3) => parseFloat(v.toFixed(precision));
 const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
 const ProfileCardComponent = ({
-  avatarUrl = '<Placeholder for avatar URL>',
+  avatarUrl = '/assets/avatar.png',
   iconUrl = '<Placeholder for icon URL>',
   grainUrl = '<Placeholder for grain URL>',
   innerGradient,
@@ -28,9 +28,9 @@ const ProfileCardComponent = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = 'Javi A. Torres',
+  name = 'Asadullah Shahbaz',
   title = 'Software Engineer',
-  handle = 'javicodes',
+  handle = 'Asadscodes',
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
@@ -343,7 +343,7 @@ const ProfileCardComponent = ({
                       <div className="pc-status">{status}</div>
                     </div>
                   </div>
-                  <button
+                  {/* <button
                     className="pc-contact-btn"
                     onClick={handleContactClick}
                     style={{ pointerEvents: 'auto' }}
@@ -351,7 +351,7 @@ const ProfileCardComponent = ({
                     aria-label={`Contact ${name || 'user'}`}
                   >
                     {contactText}
-                  </button>
+                  </button> */}
                 </div>
               )}
             </div>

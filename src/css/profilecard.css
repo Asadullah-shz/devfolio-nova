@@ -64,13 +64,13 @@
   position: relative;
   background-blend-mode: color-dodge, normal, normal, normal;
   animation: glow-bg 12s linear infinite;
-  box-shadow: rgba(88, 83, 83, 0.977) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+  box-shadow: rgba(216, 213, 213, 0.71) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
   transition: transform 1s ease;
   transform: translateZ(0) rotateX(0deg) rotateY(0deg);
-  background: rgba(15, 172, 234, 0.9);
+  background: rgba(245, 247, 248, 0.9);
   backface-visibility: hidden;
   overflow: hidden;
-  
+
 }
 
 .pc-card:hover,
@@ -101,17 +101,24 @@
   background-image: var(--inner-gradient);
   background-color: rgba(0, 0, 0, 0.9);
   transform: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .pc-shine {
   backdrop-filter: none;
   pointer-events: none;
 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
   --space: 5%;
   --angle: -45deg;
-  transform: translate3d(0, 0, 1px);
   overflow: hidden;
-  z-index: 3;
+  z-index: 10;
   background: transparent;
   background-size: cover;
   background-position: center;
@@ -126,7 +133,7 @@
       var(--sunpillar-clr-1) calc(var(--space) * 7)),
     repeating-linear-gradient(var(--angle),
       #1a1a1a 0%,
-      hsl(0, 0%, 60%) 3.8%,
+      hsl(0, 8%, 90%) 3.8%,
       hsl(0, 0%, 70%) 4.5%,
       hsl(0, 0%, 60%) 5.2%,
       #1a1a1a 10%,
@@ -147,7 +154,8 @@
   background-repeat: repeat;
 
   transition: filter 0.8s ease;
-  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  /* MODIFIED: Reduced opacity from 0.5 to 0.3 */
+  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.3);
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
@@ -165,7 +173,8 @@
 
 .pc-card:hover .pc-shine,
 .pc-card.active .pc-shine {
-  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  /* MODIFIED: Reduced opacity from 0.5 to 0.4 */
+  filter: brightness(0.85) contrast(1.5) saturate(0.5) opacity(0.4); 
   animation-play-state: paused;
 }
 
@@ -214,21 +223,25 @@
 }
 
 .pc-glare {
-  transform: translate3d(0, 0, 1.1px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
   overflow: hidden;
   background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
       hsl(0, 0%, 85%) 12%,
       hsla(0, 0%, 30%, 0.8) 90%);
   mix-blend-mode: overlay;
   filter: brightness(0.8) contrast(1.2);
-  z-index: 4;
+  z-index: 11;
 }
 
 .pc-avatar-content {
-  mix-blend-mode: luminosity;
   overflow: visible;
-  transform: translateZ(2);
   backface-visibility: hidden;
+  z-index: 5;
 }
 
 .pc-avatar-content .avatar {
@@ -241,6 +254,7 @@
   backface-visibility: hidden;
   will-change: transform;
   transition: transform 120ms ease-out;
+  z-index: 1;
 }
 
 .pc-avatar-content::before {
@@ -339,7 +353,7 @@
   transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px),
       calc(var(--pointer-from-top) * -6px + 3px),
       0.1px);
-  z-index: 5;
+  z-index: 6;
   mix-blend-mode: luminosity;
 }
 

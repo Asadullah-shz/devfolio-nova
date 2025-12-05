@@ -1,9 +1,15 @@
-import { Home, Projects, Contact, Experience, About, NotFound } from './components/imports.js';
+import React from 'react';
+import Home from './components/pages/Home.jsx';
+import Projects from './components/pages/project.jsx';
+import Contact from './components/pages/contact.jsx';
+import Experience from './components/pages/experience.jsx';
+import About from './components/pages/about.jsx';
+import NotFound from './components/pages/404.jsx';
 import { MoveLeft } from 'lucide-react';
-import Preloader from './ui/animations/mainloader.jsx';
-import { TransitionProvider, useTransition } from './context/TransitionContext.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Divider, Dropdown, Space, theme } from "antd";
+import Preloader from './ui/mainloader.jsx';
+import { TransitionProvider, useTransition } from './context/TransitionContext.jsx';
 
 const { useToken } = theme;
 
@@ -95,13 +101,13 @@ const AppContent = () => {
                         <div className="pl-9">
                             <Dropdown
                                 className=""
-                            // menu={{ items }}
-                            // popupRender={(menu) => (
-                            //     <div style={contentStyle}>
-                            //         {React.cloneElement(menu, { style: menuStyle })}
-                            //         <Divider style={{ margin: 0 }} />
-                            //     </div>
-                            // )}
+                                // menu={{ items }}
+                                // popupRender={(menu) => (
+                                //     <div style={contentStyle}>
+                                //         {React.cloneElement(menu, { style: menuStyle })}
+                                //         <Divider style={{ margin: 0 }} />
+                                //     </div>
+                                // )}
                             >
                                 <a onClick={(e) => e.preventDefault()}>
                                     <Space className="hover:underline cursor-pointer">EN</Space>
@@ -110,8 +116,8 @@ const AppContent = () => {
                         </div>
 
                         <button className="border border-gray-600 text-white px-6 py-2 rounded-sm hover:bg-white/10 transition-colors">
-                            <a href="mailto:asadshzdev@gmail.com">Hello@asad</a>
-                        </button>
+              <a href="mailto:asadshzdev@gmail.com">Hello@asad</a>
+            </button>
                     </li>
                 </nav>
 
