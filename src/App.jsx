@@ -48,7 +48,7 @@ const PageLoader = () => (
     </div>
 );
 
-const TransitionLink = ({ to, children, className }) => {
+const TransitionLink = ({ to, children, className, onClick }) => {
     const { navigateWithTransition } = useTransition();
 
     return (
@@ -56,6 +56,7 @@ const TransitionLink = ({ to, children, className }) => {
             href={to}
             onClick={(e) => {
                 e.preventDefault();
+                if (onClick) onClick(e);
                 navigateWithTransition(to);
             }}
             className={className}

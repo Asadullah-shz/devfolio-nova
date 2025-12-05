@@ -39,10 +39,7 @@ const HeroPage = () => {
 
                 <p className="mt-8 text-lg text-gray-400 text-center max-w-xl">
                     I engineer high-performance{' '}
-                    <a
-                        href=""
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <h4
                         style={{
                             color: '#9d63ff',
                             borderBottom: '1px solid rgba(157, 99, 255, 0.5)'
@@ -50,7 +47,7 @@ const HeroPage = () => {
                         className="hover:text-white transition duration-200"
                     >
                         Web Apps
-                    </a>{' '}
+                    </h4>{' '}
                     that blend seamless user experiences with scalable architecture.
                 </p>
             </main>
