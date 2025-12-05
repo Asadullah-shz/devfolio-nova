@@ -1,27 +1,38 @@
-import Card from '../../ui/cards/card.jsx'
-import React from 'react'
-import FlowingButton from '../../ui/flowingbutton.jsx'
+import Card from '../../ui/cards/card.jsx';
+import FlowingButton from '../../ui/flowingbutton.jsx';
 import MovingParticleBackground from '../../ui/animations/movingparticalbg.jsx';
 
-const contact = () => {
+const Contact = () => {
   return (
-    <div style={{ minHeight: '100vh', position: 'relative' }}>
+    <div className="min-h-screen relative">
       <MovingParticleBackground
         particleCount={50}
         glowColor={'200, 200, 200'}
       />
-      <div className='flex-row flex-wrap justify-center gap-4 '>
 
-        <div className="text-white containerz mb-1">
-          <h1 className='mx-15 text-4xl p-2 pt-5'>Contact</h1>
-          <p className='text-1xl text-neutral-500 p-2 mx-15'>The conversation starts here. Connect with me.</p>
+      <div className='flex flex-col items-center px-4 sm:px-6 lg:px-8'>
+
+        <div className="text-white w-full mb-1">
+          <h1 className='text-3xl sm:text-4xl lg:text-5xl mx-15 p-2 pt-5 font-bold'>
+            Contact
+          </h1>
+          <p className='text-sm sm:text-base lg:text-xl mx-15 text-neutral-500 p-2'>
+            The conversation starts here. Connect with me.
+          </p>
         </div>
-        <hr className="text-neutral-700 my-7 mx-16 w-11/12" />
-        <Card title="" />
+
+
+        <hr className="text-neutral-700 my-4 sm:my-7 w-full max-w-7xl" />
+
+
+        <div className="w-full max-w-7xl">
+          <Card title="" />
+        </div>
       </div>
+
       <FlowingButton />
     </div>
-  )
-}
+  );
+};
 
-export default contact
+export default Contact;

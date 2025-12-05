@@ -1,1 +1,5 @@
 node_modules
+build
+build_log.txt
+lint-staged.log 
+lint.txt

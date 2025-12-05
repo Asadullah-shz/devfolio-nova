@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
 import { MoveLeft } from 'lucide-react';
+import { Suspense } from 'react';
 import Preloader from './ui/animations/mainloader.jsx';
 import { TransitionProvider, useTransition } from './context/TransitionContext.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -39,7 +39,7 @@ const items = [
     },
 ];
 
-// Loading fallback component
+
 const PageLoader = () => (
     <div className="flex items-center justify-center min-h-screen bg-[#0f0f10ff]">
         <div className="p-3 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 w-16 h-16 aspect-square rounded-full">
@@ -119,6 +119,7 @@ const AppContent = () => {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>
+                
             </div>
         </div>
     );

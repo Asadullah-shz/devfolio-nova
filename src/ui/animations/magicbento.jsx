@@ -458,7 +458,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef }) => (
   <div
-    className="bento-section grid gap-2 p-3 w-full mx-18 select-none align-center"
+    className="bento-section grid gap-2 p-3 w-auto mx-2 sm:mx-8 lg:mx-16 select-none align-center"
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}
   >
@@ -669,8 +669,8 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                 <a href={card.url} target="_blank" className="card__header flex justify-between items-center gap-3 relative text-white"> 
-                  
+                  <a href={card.url} target="_blank" className="card__header flex justify-between items-center gap-3 relative text-white">
+
                     <span className="card__label text-gray-400 text-sm">{card.label}</span>
                     <div className="flex items-center gap-1 text-gray-400 text-sm">
                       <Eye size={16} />
@@ -678,17 +678,17 @@ const MagicBento = ({
                     </div>
                   </a>
                   <a href={card.url} target="_blank">
-                  <div className="card__content flex flex-col relative text-white">
-                    <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
-                      {card.title}
-                    </h3>
-                    <p className={`card__description text-sm leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
-                      {card.description}
-                    </p>
-                    <button className='card__button text-xs font-medium pt-5'>Read more</button>
-                  </div>
+                    <div className="card__content flex flex-col relative text-white">
+                      <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                        {card.title}
+                      </h3>
+                      <p className={`card__description text-sm leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                        {card.description}
+                      </p>
+                      <button className='card__button text-xs font-medium pt-5'>Read more</button>
+                    </div>
                   </a>
-                  
+
                 </ParticleCard>
               );
             }

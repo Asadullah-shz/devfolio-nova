@@ -9,7 +9,7 @@ const FlowingButton = () => {
 
   return (
     <div
-      className="absolute bottom-6 left-8 z-50 group"
+      className=" fixed bottom-6 left-8 z-[9999] group lg:absolute lg:bottom-25 lg:left-8"
 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

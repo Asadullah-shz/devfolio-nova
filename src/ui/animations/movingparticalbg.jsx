@@ -25,7 +25,7 @@ const createParticleElement = (x, y, color) => {
 };
 
 const useMobileDetection = () => {
-    const [isMobile, setIsMobile] = useState(() => 
+    const [isMobile, setIsMobile] = useState(() =>
         typeof window !== 'undefined' && window.innerWidth <= MOBILE_BREAKPOINT
     );
 
@@ -60,6 +60,8 @@ const MovingParticleBackground = memo(({
 
     const disableAnimations = isMobile;
 
+
+
     const cleanupParticles = useCallback(() => {
         animationsRef.current.forEach(anim => {
             if (anim && anim.kill) anim.kill();
@@ -85,7 +87,6 @@ const MovingParticleBackground = memo(({
 
         if (width === 0 || height === 0) return;
 
-        
         const effectiveCount = width < 768 ? Math.floor(particleCount * 0.5) : particleCount;
 
         const spawnAndAnimateParticle = (index) => {
@@ -96,9 +97,8 @@ const MovingParticleBackground = memo(({
             container.appendChild(particle);
             particlesRef.current.push(particle);
 
-      
-            const scaleAnim = gsap.fromTo(particle, 
-                { scale: 0, opacity: 0 }, 
+            const scaleAnim = gsap.fromTo(particle,
+                { scale: 0, opacity: 0 },
                 {
                     scale: 1,
                     opacity: 1,
@@ -118,7 +118,6 @@ const MovingParticleBackground = memo(({
             });
             animationsRef.current.push(moveAnim);
 
-            
             const opacityAnim = gsap.to(particle, {
                 opacity: 0.3 + Math.random() * 0.5,
                 duration: 4 + Math.random() * 2,
@@ -129,7 +128,6 @@ const MovingParticleBackground = memo(({
             animationsRef.current.push(opacityAnim);
         };
 
-        
         for (let i = 0; i < effectiveCount; i++) {
             const timeoutId = setTimeout(() => {
                 spawnAndAnimateParticle(i);
@@ -144,7 +142,6 @@ const MovingParticleBackground = memo(({
             return;
         }
 
-      
         const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
         const handle = idleCallback(() => {
             initializeAndAnimateParticles();
@@ -158,37 +155,51 @@ const MovingParticleBackground = memo(({
             }
             cleanupParticles();
         };
+
+        return () => {
+            if (window.cancelIdleCallback) {
+                window.cancelIdleCallback(handle);
+            } else {
+                clearTimeout(handle);
+            }
+            cleanupParticles();
+        };
     }, [initializeAndAnimateParticles, cleanupParticles, disableAnimations]);
 
+
+
     return (
-        <div
-            ref={containerRef}
-            className="MovingParticleBackground"
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100vw',
-                height: '100vh',
-                background: '#0f0f10ff',
-                pointerEvents: 'none',
-                zIndex: -10,
-                overflow: 'hidden',
-            }}
-        >
-            {disableAnimations && (
-                <p style={{
-                    color: 'rgba(255, 255, 255, 0.5)',
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    fontSize: '12px'
-                }}>
-                    Animations disabled for small screens.
-                </p>
-            )}
-        </div>
+        <>
+            <div
+                ref={containerRef}
+                className="MovingParticleBackground"
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    background: '#0f0f10ff',
+                    pointerEvents: 'none',
+                    zIndex: -10,
+                    overflow: 'hidden',
+                }}
+            >
+              
+                {disableAnimations && (
+                    <p style={{
+                        color: 'rgba(255, 255, 255, 0.5)',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        fontSize: '12px'
+                    }}>
+                        {("")}
+                    </p>
+                )}
+            </div>
+        </>
     );
 });
 

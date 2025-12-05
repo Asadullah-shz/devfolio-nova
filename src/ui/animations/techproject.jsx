@@ -507,7 +507,7 @@ const TechProjectsBento = ({ projectsData = DEFAULT_PROJECTS_DATA }) => {
   const dataToRender = projectsData;
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-2 mx-20">
+    <div className="min-h-[50vh] sm:min-h-screen flex items-center justify-center p-2 mx-4 sm:mx-10 lg:mx-20">
       <style>
         {`
           .projects-section {

@@ -45,7 +45,7 @@ const ProfileCardComponent = ({
   behindGlowSize,
   className = '',
   enableTilt = true,
-  enableMobileTilt = false,
+  enableMobileTilt = true,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
   name = 'Asadullah Shahbaz',
