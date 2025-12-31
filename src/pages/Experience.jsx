@@ -1,6 +1,6 @@
-import MovingParticleBackground from '../../ui/animations/movingparticalbg.jsx';
-import Card2 from '../../ui/cards/card2.jsx';
-import FlowingButton from '../../ui/flowingbutton.jsx';
+import MovingParticleBackground from '../components/animations/movingparticalbg.jsx';
+import Card2 from '../components/cards/card2.jsx';
+import FlowingButton from '../components/common/FlowingButton.jsx';
 
 const PROJECTS_DATA = [
   {
@@ -49,7 +49,7 @@ function Experience() {
         glowColor={'200, 200, 200'}
       />
 
-      
+
       <div className="text-white containerz mb-1 px-4 sm:px-6 lg:px-8">
         <h1 className='text-3xl sm:text-4xl lg:text-5xl mx-7 p-2 pt-5 font-bold'>
           Experience
@@ -58,17 +58,17 @@ function Experience() {
           A blend of professional duty and personal passion.
         </p>
       </div>
-      
+
       <hr className="text-neutral-700 my-4 sm:my-7 mx-4 sm:mx-8 lg:mx-16 w-[calc(100%-2rem)] sm:w-11/12" />
 
-  
+
       <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-20 gap-8 sm:gap-12 lg:gap-20 relative px-4 sm:px-6">
-        
-      
+
+
         <div className="flex flex-col items-center w-full space-y-8 sm:space-y-12 lg:space-y-16">
           {PROJECTS_DATA.map((project, index) => {
             const isLeft = index % 2 === 0;
-            
+
             return (
               <div
                 key={index}
@@ -78,8 +78,8 @@ function Experience() {
                 `}
               >
                 <Card2 {...project} />
-                
-        
+
+
                 {index < PROJECTS_DATA.length - 1 && (
                   <div
                     className={`

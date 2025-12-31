@@ -1,6 +1,6 @@
-import Card from '../../ui/cards/card.jsx';
-import FlowingButton from '../../ui/flowingbutton.jsx';
-import MovingParticleBackground from '../../ui/animations/movingparticalbg.jsx';
+import Card from '../components/cards/card.jsx';
+import FlowingButton from '../components/common/FlowingButton.jsx';
+import MovingParticleBackground from '../components/animations/movingparticalbg.jsx';
 
 const Contact = () => {
   return (
@@ -22,7 +22,7 @@ const Contact = () => {
         </div>
 
 
-        <hr className="text-neutral-700 my-4 sm:my-7 w-full max-w-7xl" />
+        <hr className="text-neutral-700 my-4 sm:my-7 mx-4 sm:mx-8 lg:mx-16 w-[calc(100%-2rem)] sm:w-11/12" />
 
 
         <div className="w-full max-w-7xl">

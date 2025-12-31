@@ -1,7 +1,7 @@
-import MagicBento from '../../ui/animations/magicbento.jsx';
-import TechProjectsBento from '../../ui/animations/techproject.jsx';
-import MovingParticleBackground from '../../ui/animations/movingparticalbg.jsx';
-import FlowingButton from '../../ui/flowingbutton.jsx';
+import MagicBento from '../components/animations/magicbento.jsx';
+import TechProjectsBento from '../components/animations/techproject.jsx';
+import MovingParticleBackground from '../components/animations/movingparticalbg.jsx';
+import FlowingButton from '../components/common/FlowingButton.jsx';
 
 const Project = () => {
   const myCustomCardData = [
@@ -49,7 +49,8 @@ const Project = () => {
     },
   ];
 
-  const myNewProjects = [];
+  const myNewProjects = [
+  ];
 
   return (
     <div className="min-h-screen relative">
@@ -89,15 +90,13 @@ const Project = () => {
           />
         </div>
 
-        <hr className="text-neutral-700 my-6 sm:my-10 mx-4 sm:mx-8 lg:mx-16 w-[calc(100%-2rem)] sm:w-11/12" />
-
-
-        <div>
-          <TechProjectsBento projectsData={myNewProjects} />
-        </div>
-
-
-        <div className='h-10 sm:h-16 lg:h-20'></div>
+        {myNewProjects.length > 0 && (
+          <>
+            <hr className="text-neutral-700 my-1 sm:my-2 mx-2 sm:mx-4 lg:mx-8 w-[calc(100%-1rem)] sm:w-11/12" />
+            <TechProjectsBento projectsData={myNewProjects} />
+          </>
+        )}
+        <div className='h-2 sm:h-4 lg:h-5'></div>
       </div>
 
 

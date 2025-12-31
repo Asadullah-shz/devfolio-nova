@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, useMemo, memo } from 'react';
-import '../../css/profilecard.css';
+import '../../styles/profilecard.css';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -19,7 +19,7 @@ const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v -
 const throttle = (func, delay) => {
   let timeoutId;
   let lastRan;
-  return function(...args) {
+  return function (...args) {
     if (!lastRan) {
       func.apply(this, args);
       lastRan = Date.now();
@@ -179,14 +179,14 @@ const ProfileCardComponent = ({
     return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
   }, []);
 
-  
+
   const handlePointerMove = useMemo(
     () => throttle((event) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
       const { x, y } = getOffsets(event, shell);
       tiltEngine.setTarget(x, y);
-    }, 16), 
+    }, 16),
     [tiltEngine, getOffsets]
   );
 

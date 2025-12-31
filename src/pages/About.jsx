@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Cpu } from 'lucide-react';
-import MovingParticleBackground from '../../ui/animations/movingparticalbg.jsx';
-import ProfileCard from '../../ui/cards/card3.jsx'
-import FlowingButton from '../../ui/flowingbutton.jsx'
+import MovingParticleBackground from '../components/animations/movingparticalbg.jsx';
+import ProfileCard from '../components/cards/card3.jsx';
+import FlowingButton from '../components/common/FlowingButton.jsx';
 
 const about = () => {
     return (

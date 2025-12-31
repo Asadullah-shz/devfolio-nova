@@ -1,6 +1,6 @@
 
 import { Divider, Dropdown, Space, theme } from "antd";
-import FlowingButton from '../ui/flowingbutton'
+import FlowingButton from './FlowingButton.jsx';
 
 const { useToken } = theme;
 
@@ -42,7 +42,6 @@ const HeroPage = () => {
                     <h4
                         style={{
                             color: '#9d63ff',
-                            borderBottom: '1px solid rgba(157, 99, 255, 0.5)'
                         }}
                         className="hover:text-white transition duration-200"
                     >

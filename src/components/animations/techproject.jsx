@@ -8,78 +8,7 @@ const DEFAULT_SPOTLIGHT_RADIUS = 10;
 const DEFAULT_GLOW_COLOR = '238, 238, 238';
 const MOBILE_BREAKPOINT = 768;
 
-const DEFAULT_PROJECTS_DATA = [
-  {
-    color: '#141416b1',
-    title: 'Zod Bird',
-    description: 'Zodbird is an e2e typed tinybird.co client library for typescript, leveraging zod for type safety and transformations',
-    date: 'May 21, 2023',
-    views: '7.6K'
-  },
-  {
-    color: '#141416b1',
-    title: 'chronark.com',
-    description: "The website you're looking at",
-    date: 'Mar 28, 2023',
-    views: '7.7K'
-  },
-  {
-    color: '#141416b1',
-    title: 'Upstash Core Analytics',
-    description: 'Low level utilities to build analytics tools on top of Redis.',
-    date: 'Feb 13, 2023',
-    views: '2.6K'
-  },
-  {
-    color: '#141416b1',
-    title: 'React.js CLI',
-    description: 'A CLI React component to interact with Upstash Redis databases.',
-    date: 'Feb 5, 2023',
-    views: '3.1K'
-  },
-  {
-    color: '#141416b1',
-    title: 'envshare.dev',
-    description: 'EnvShare is a simple tool to share environment variables securely. It uses AES-GCM to encrypt your data before sending it to the server. The encryption key never leaves your browser.',
-    date: 'Jan 16, 2023',
-    views: '5.4K'
-  },
-  {
-    color: '#141416b1',
-    title: '@upstash/edge-flags',
-    description: 'Feature flags for your edge functions.',
-    date: 'Dec 12, 2022',
-    views: '1.3K'
-  },
-  {
-    color: '#141416b1',
-    title: '@chronark/access',
-    description: 'A minimal library for access control. It is designed to be used together with opaque access tokens by providing a simple interface to define roles with different access permissions and verifying requests to resources.',
-    date: 'Nov 13, 2022',
-    views: '2.4K'
-  },
-  {
-    color: '#141416b1',
-    title: 'QStash',
-    description: 'QStash is a fully managed serverless queue and messaging service designed for the serverless era.',
-    date: 'Jul 18, 2022',
-    views: '4.8K'
-  },
-  {
-    color: '#141416b1',
-    title: '@upstash/qstash',
-    description: 'A typescript client and consumer for QStash.',
-    date: 'Jul 18, 2022',
-    views: '1.4K'
-  },
-  {
-    color: '#141416b1',
-    title: 'envshare.dev',
-    description: 'EnvShare is a simple tool to share environment variables securely. It uses AES-GCM to encrypt your data before sending it to the server. The encryption key never leaves your browser.',
-    date: 'Jan 16, 2023',
-    views: '5.4K'
-  },
-];
+
 
 
 
@@ -435,7 +364,7 @@ const GlobalSpotlight = ({
         updateCardGlowProperties(cardElement, e.clientX, e.clientY, glowIntensity, spotlightRadius);
       });
 
-      // Move spotlight
+
       gsap.to(spotlightRef.current, {
         left: e.clientX,
         top: e.clientY,
@@ -507,7 +436,7 @@ const TechProjectsBento = ({ projectsData = DEFAULT_PROJECTS_DATA }) => {
   const dataToRender = projectsData;
 
   return (
-    <div className="min-h-[50vh] sm:min-h-screen flex items-center justify-center p-2 mx-4 sm:mx-10 lg:mx-20">
+    <div className="flex justify-center p-2 pt-10 mx-4 sm:mx-10 lg:mx-20">
       <style>
         {`
           .projects-section {
